@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Appointments List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+  <body style="background-color: #a7dcf6;">
+  <div th:replace="fragments/header :: header"></div>
+  <div class="container">
+    <h1 class="mt-5">Appointment List</h1>
+    <a type="button" class="btn btn-primary" th:href="@{~/Appointment/Reservation}">Reserve</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Patient</th>
+          <th>Doctor Specialty</th>
+          <th>Date</th>
+          <th>Reason</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="Appointment : ${Appointment}">
+          <td th:text="${Appointment.reserveId}"></td>
+          <td th:text="${Appointment.reservee}"></td>
+          <td th:text="${Appointment.doctor}"></td>
+          <td th:text="${Appointment.date}"></td>
+          <td th:text="${Appointment.inquiry}"></td>
+          <td>
+            <a href class="btn btn-warning" th:href="@{~/Appointment/{id}(id=${Appointment.reserveId})}">Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <header th:fragment="header">
+        <nav class="navbar navbar-light" style="background-color: #8BBBF2;">
+            <div class="container-fluid">
+                <b>
+                <div class="navbar-header">
+                    <a class="navbar-brand" th:href="@{~/}">Fast-Med</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a th:href="@{~/}">Home</a></li>
+                    <li><a th:href="@{~/AboutUs}">About Us</a></li>
+                    <li><a th:href="@{~/contact}">Contact Us</a></li>
+                    <li><a th:href="@{~/Appointment}">Appointment List</a></li>
+                    <li><a th:href="@{~/Appointment/Reservation}">Reserve</a></li>
+                    <li><a th:href="@{~/doctor}">Doctors List</a></li>
+                    <li><a th:href="@{~/doctor/doctorAdd}">Register Doctor</a></li>
+                    <li><a th:href="@{~/user}">User List</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:href="@{~/SignUp}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a th:href="@{~/Login}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+                </b>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

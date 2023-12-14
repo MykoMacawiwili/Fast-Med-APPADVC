@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<body style="background-color: #a7dcf6;">
+
+
+<div th:replace="fragments/header :: header"></div>
+
+
+<div class="text-align: center; container">
+    <div class="width: 500px; margin: 0 auto;">
+        <div>
+            <h1>FastMed</h1>
+        </div>
+        <section style="width: 300px;">
+            <form th:method="POST" th:action="@{~/Appointment}" th:object="${Appointment}">
+                <h4>Reserve</h4>
+                <hr />
+                <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label for="reservee" class="form-label">Patient: </label>
+                    <input type="text" class="form-control" id="reservee" th:field="*{reservee}" name="reservee"/>
+                </div>
+                <div class="form-group">
+                    <label for="doctor" class="form-label">Specialty of doctor needed: </label>
+                    <input type="text" class="form-control" id="doctor" th:field="*{doctor}" name="doctor"/>
+                </div>
+                <div class="form-group">
+                    <label for="date" class="form-label">Date of Reservation: </label>
+                    <input type="datetime-local" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" id="date" th:field="*{date}" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="inquiry" class="form-label">Previous Health Conditions & Additional Information: </label>
+                    <textarea rows="4" cols="100" class="form-control" id="inquiry" th:field="*{inquiry}"  placeholder="Type Here"></textarea>
+                </div>
+                <br />
+                <button style="height: 40px; width: 276px; font-size:20px;" type="submit" class="btn btn-success">Reserve</a></button>
+            </form>
+        </section>
+    </div>
+</div>
+
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d7b63982e6c6ba4',m:'WiaKyKGxjBsskzL63tzQRx.6g0WNu0bFaUuxlCgi1Yw-1643888474-0-AT7DFVvlQcg+9gm3f/mWkDC6QfijMTTJMmD5umsijjD+919FSrgXYYD6GY0Y+BTwbjNceIMe9q2lhs4P5KoM6Vd7q2Yov9rXS3xKwX2hx1KRJGfBk4ln29zLsx9Ak6gCC53pb1+5PZhWM136EwCSMRk+hTfRMxTPnxm+g1lTOA2kctwRCCCXW2kvFSDCzaf5ULLpXFWabQTDpTyb3ya50NQ=',s:[0x38e80a98f2,0x455170a1e6],}})();</script></body>
+</html>

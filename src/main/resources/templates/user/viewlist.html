@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .container {
+            margin:0 auto;
+            width:1300px;
+        }
+    </style>
+</head>
+<body style="background-color: #a7dcf6;">
+<div th:replace="fragments/header :: header"></div>
+
+
+<div class="text-align: center; container">
+    <div class="width: 500px; margin: 0 auto;">
+        <div>
+            <h1>Update List</h1>
+        </div>
+        <section style="width: 300px;">
+            <form th:method="PUT" th:action="@{~/user}" th:object="${user}">
+                <input type="hidden" name="id" th:field="*{id}">
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input type="text" class="form-control" id="firstName" th:field="*{firstName}"/>
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input type="text" class="form-control" id="lastname" th:field="*{lastName}"/>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" id="emailAddress" th:field="*{emailAddress}"/>
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="text" class="form-control" id="password" th:field="*{password}"/>
+                </div>
+
+                <br />
+
+                <button style="height: 40px; width: 276px; font-size:20px;" type="submit" class="btn btn-primary">Update User</button>
+            </form>
+            <form class="mt-1" th:method="delete" th:action="@{~/user}">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <button style="height: 40px; width: 276px; font-size:20px;" type="submit"  class="btn btn-canger">Delete User</button>
+            </form>
+        </section>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

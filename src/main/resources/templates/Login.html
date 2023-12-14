@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #a7dcf6;">
+
+<div th:replace="fragments/header :: header"></div>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-1">
+        <h1>Login</h1>
+        <hr />
+
+        <section>
+            <form th:method="POST" th:action="@{~/Login}" th:object="${user}">
+                <h4>Reserve With Us.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label for="emailAddress" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="emailAddress" th:field="*{emailAddress}"/>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" class="form-control" id="password" th:field="*{password}"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        <section>
+            <h4>Fast-Med.</h4>
+            <hr />
+
+            <div>
+                <p>
+                    Fast-Med a web application that would be able to resesrve or have an appointment with a doctor concerning
+                    one's own health concerns or issues. Please understand if certain days cannot be have an appointment as it is
+                    full.
+                </p>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+
+
+</body>
+</html>
